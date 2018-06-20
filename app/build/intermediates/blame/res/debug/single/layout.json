@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\diary_row.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\diary_row.xml"
+    },
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\diary_list.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\diary_list.xml"
+    },
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_register.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\layout_register.xml"
+    },
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\diary_edit.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\diary_edit.xml"
+    }
+]
