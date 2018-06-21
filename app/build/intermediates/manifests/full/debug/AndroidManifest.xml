@@ -16,7 +16,7 @@
             android:authorities="andy.ham.diarycontentprovider" />
 
         <activity
-            android:name="andy.ham.MainActivity"
+            android:name="andy.ham.Welcome"
             android:label="@string/title_diares_list"
             android:theme="@android:style/Theme.Light" >
             <intent-filter>
@@ -24,26 +24,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="andy.ham.MainActivity"
+            android:label="@string/title_diares_list"
+            android:theme="@android:style/Theme.Light" >
         </activity>
         <activity
             android:name="andy.ham.RegisterActivity"
             android:label="@string/title_diares_list"
             android:theme="@android:style/Theme.Light" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="andy.ham.LifeDiary"
             android:label="@string/title_diares_list"
             android:theme="@android:style/Theme.Light" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="andy.ham.DiaryEditor"

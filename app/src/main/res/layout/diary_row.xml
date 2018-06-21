@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout android:id="@+id/row"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-
+s
 	<TextView android:id="@+id/text1"
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
 		android:maxWidth="200dip" 
 		android:textSize="22sp"
 		android:textColor="@color/common_black"
-		android:layout_marginTop="10dip"
-		android:text="第一组第一项" />
+		android:text="第一组第一项"
+		android:layout_alignTop="@+id/created"
+		android:layout_alignParentLeft="true" />
 	
 	<TextView android:id="@+id/created" 
 	    android:layout_width="wrap_content"

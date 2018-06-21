@@ -26,7 +26,7 @@ public class RegisterActivity extends Activity {
         setContentView(R.layout.layout_register);
         register_name=(EditText)findViewById(R.id.register_name);
         register_psd=(EditText) findViewById(R.id.register_psd);
-        age=(EditText) findViewById(R.id.age);
+        //age=(EditText) findViewById(R.id.age);
         rg_group=(RadioGroup) findViewById(R.id.rd_group);
         rg_man=(RadioButton) findViewById(R.id.rd_man);
         rg_woman=(RadioButton) findViewById(R.id.rd_not_man);
@@ -49,7 +49,7 @@ public class RegisterActivity extends Activity {
     public void register_btn(View v){
         String name=register_name.getText().toString();
         String psd=register_psd.getText().toString();
-        String ageinfo=age.getText().toString();
+        //String ageinfo=age.getText().toString();
         if (name==null) {
             Toast.makeText(this, "账号不能为空", Toast.LENGTH_SHORT).show();
         }else if (psd==null) {
@@ -57,14 +57,14 @@ public class RegisterActivity extends Activity {
         }else if (sex==null) {
             sex="男";
         }else {
-            if (ageinfo==null) {
-                ageinfo="暂未填写";
-            }
+          //  if (ageinfo==null) {
+          //      ageinfo="暂未填写";
+          //  }
             editor=preferences.edit();
             editor.putString("name", name);
             editor.putString("psd", psd);
             editor.putString("sex", sex);
-            editor.putString("age",ageinfo);
+           // editor.putString("age",ageinfo);
             editor.commit();
             Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,LifeDiary.class));

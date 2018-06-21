@@ -4,6 +4,10 @@
         "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\drawable\\icon.png"
     },
     {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\welcome.jpg",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\drawable\\welcome.jpg"
+    },
+    {
         "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\background.jpg",
         "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\drawable\\background.jpg"
     }

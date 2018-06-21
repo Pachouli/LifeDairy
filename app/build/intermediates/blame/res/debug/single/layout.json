@@ -18,5 +18,9 @@
     {
         "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\diary_edit.xml",
         "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\diary_edit.xml"
+    },
+    {
+        "merged": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\welcome.xml",
+        "source": "D:\\Users\\Adiministrat\\Downloads\\15-database\\LifeDiary\\app\\src\\main\\res\\layout\\welcome.xml"
     }
 ]

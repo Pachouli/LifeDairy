@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import andy.ham.Fields.DiaryColumns;
 import andy.ham.LifeDiaryContentProvider.DatabaseHelper;
 public class DiaryEditor extends Activity {
 	private static final String TAG = "Diary";
+	private Context context;
 	public static final String EDIT_DIARY_ACTION 
 	= "andy.ham.DiaryEditor.EDIT_DIARY";
 	public static final String INSERT_DIARY_ACTION 
@@ -69,15 +72,14 @@ public class DiaryEditor extends Activity {
 		} else if (INSERT_DIARY_ACTION.equals(action)) {// 新建日记
 			mState = STATE_INSERT;
 			setTitle("新建日记");
-		} else if(DELETE_DIARY_ACTION.equals(action)){
+		} else if (DELETE_DIARY_ACTION.equals(action)) {
 			mState = STATE_DELETE;
 			mUri = intent.getData();
 			mCursor = managedQuery(mUri, PROJECTION, null, null, null);
 			mCursor.moveToFirst();
 			setResult(RESULT_OK, (new Intent()).setAction(mUri.toString()));
 			setTitle("删除日记");
-		}
-			else {
+		} else {
 			Log.e(TAG, "no such action error");
 			finish();
 			return;
@@ -86,8 +88,7 @@ public class DiaryEditor extends Activity {
 			public void onClick(View view) {
 				if (mState == STATE_INSERT) {
 					insertDiary();
-				}
-				else {
+				} else {
 					updateDiary();
 				}
 				Intent mIntent = new Intent();
@@ -95,15 +96,15 @@ public class DiaryEditor extends Activity {
 				finish();
 			}
 		});
-		deleteButton.setOnClickListener(new  View.OnClickListener() {
+		deleteButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-					getContentResolver().delete(mUri, null, null);
-					Intent intent = new Intent(DiaryEditor.this, LifeDiary.class);
-					startActivity(intent);
-					finish();
+				getContentResolver().delete(mUri, null, null);
+				Intent intent = new Intent(DiaryEditor.this, LifeDiary.class);
+				startActivity(intent);
+				finish();
 				//}
 			}
-		}	);
+		});
 	}
 
 	private void insertDiary() {
@@ -130,14 +131,5 @@ public class DiaryEditor extends Activity {
 		getContentResolver().
 		update(mUri, values,null, null);
 	}
-/*	private void deleteDiary(){
-		//Uri uri = ContentUris.withAppendedId(getIntent().getData(),getListView().getSelectedItemId());
-		getContentResolver().delete(mUri, null, null);
-		Intent intent = new Intent(DiaryEditor.this, LifeDiary.class);
-		startActivity(intent);
-		DiaryEditor.this.finish();
-		//mOpenHelper.delete(uri,null,null);
-
-}*/
 
 }

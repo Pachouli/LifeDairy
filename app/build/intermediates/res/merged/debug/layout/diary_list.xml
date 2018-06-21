@@ -18,6 +18,7 @@
 		android:textColor="@color/common_black"
 		android:text="您还没有开始写日记呢!点击下边的Menu按钮开始写日记吧:)" />
 
+
 </LinearLayout>
 
 

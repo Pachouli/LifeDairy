@@ -2,6 +2,7 @@ package andy.ham;
 import android.app.ListActivity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,25 +11,31 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import andy.ham.Fields.DiaryColumns;
 import andy.ham.LifeDiaryContentProvider.DatabaseHelper;
-import andy.ham.LifeDiaryContentProvider;
 //继承来自listView
 public class LifeDiary extends ListActivity {
 	// 插入一条新纪录
 	public static final int MENU_ITEM_INSERT = Menu.FIRST;
 	// 编辑内容
 	public static final int MENU_ITEM_EDIT = Menu.FIRST + 1;
-	public static final int MENU_ITEM_DELETE = Menu.FIRST + 2;
 	private Uri uri;
+	private Cursor mCursor;
+	private EditText ed_seach;
 	private  DatabaseHelper mOpenHelper;
 
-	private static final String[] PROJECTION = 
+	private static final String[] PROJECTION =
 		new String[] { DiaryColumns._ID,
 			DiaryColumns.TITLE, DiaryColumns.CREATED };
-	
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diary_list);
@@ -50,48 +57,33 @@ public class LifeDiary extends ListActivity {
 				R.layout.diary_row, cursor, new String[]
 				{ DiaryColumns.TITLE,DiaryColumns.CREATED },
 				new int[] { R.id.text1,R.id.created });
-		setListAdapter(adapter);
-    }   
+		setListAdapter(adapter);}
+
     //添加选择菜单
     public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		menu.add(Menu.NONE, MENU_ITEM_INSERT, 0, R.string.menu_insert);
-		menu.add(Menu.NONE, MENU_ITEM_DELETE, 0, R.string.menu_delete);
 		return true;
 	}
     //添加选择菜单的选择事件
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		// 插入一条数据
-		case MENU_ITEM_INSERT:
-			Intent intent0 = new Intent(this, DiaryEditor.class);
-			intent0.setAction(DiaryEditor.INSERT_DIARY_ACTION);
-			intent0.setData(getIntent().getData());
-			startActivity(intent0);
-			return true;
-			// 编辑当前数据内容通过单击日记名实现
-			// 删除当前数据
-		case MENU_ITEM_DELETE:
-			Uri uri = ContentUris.withAppendedId(getIntent().getData(),getListView().getSelectedItemId());
-			//Uri uri=intent.getData();
-			 getContentResolver().delete(uri, null, null);
-			Intent intent = new Intent(this, LifeDiary.class);
-			intent.setAction(DiaryEditor.DELETE_DIARY_ACTION);
-			intent.setData(getIntent().getData());
-			startActivity(intent);
-            //finish();
-			//renderListView();
-          //  return true;
+			// 插入一条数据
+			case MENU_ITEM_INSERT:
+				Intent intent0 = new Intent(this, DiaryEditor.class);
+				intent0.setAction(DiaryEditor.INSERT_DIARY_ACTION);
+				intent0.setData(getIntent().getData());
+				startActivity(intent0);
+				return true;
 		}
 		return super.onOptionsItemSelected(item);
-	} 
+	}
 	protected void onListItemClick
 	(ListView l, View v, int position, long id) {
 		Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
 		startActivity(new Intent(DiaryEditor.EDIT_DIARY_ACTION, uri));
 
 	}
-
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
@@ -100,7 +92,6 @@ public class LifeDiary extends ListActivity {
 	private void renderListView() {
 		Cursor cursor = managedQuery(getIntent().getData(), PROJECTION,
 				null,null, DiaryColumns.DEFAULT_SORT_ORDER);
-
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 			R.layout.diary_row, cursor, new String[] { DiaryColumns.TITLE,
 			DiaryColumns.CREATED }, new int[] { R.id.text1,R.id.created });
